@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/home.css">
+<div style="height: 76.6vh; width: 90%;">
+
+    <a href="/project" id="create" class="d-flex text-align-center" >Create New Project</a>
+    <%if(projects){%>
+        <ol>
+            <%for(project of projects){%>
+                <li>
+                    <a style="text-decoration: none; " href="/project/<%=project._id%>">
+                        <h3 style="margin: 0;">
+                            <%=project.name%>
+                        </h3>
+                        <p style="margin: 0;">
+                            <%=project.description%>
+                        </p>
+                        <h6 style="margin: 0; ">
+                            <%=project.author%>
+                        </h6>
+
+                    </a>
+                </li>
+                <%}%>
+
+        </ol>
+        <%}%>
+</div>

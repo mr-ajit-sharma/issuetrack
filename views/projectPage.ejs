@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="/css/project.css">
+<div class="m-0 p-0" id="main">
+    <div id="create">
+
+        <div id="createFirst">
+            <h3>
+                <%=project.name%>
+            </h3>
+            <p>
+                <%=project.description%>
+            </p>
+            <h6>
+                <%=project.author%>
+            </h6>
+        </div>
+        <!-- Button trigger modal -->
+    </div>
+    <div id="issueComponent">
+
+        <!-- Example split danger button -->
+        <div class="btn-group">
+            <button type="button" class=" btn btn-primary">Filter</button>
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <span class="visually-hidden btn ">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu btn-primary filterbtn">
+                <li class=" text-danger"><a class="dropdown-item"
+                        href="/issue/filter?projectId=<%=project._id%>&filter=all">All</a></li>
+                <li><a class="dropdown-item" href="/issue/filter?projectId=<%=project._id%>&filter=bugs">bugs</a>
+                </li>
+                <li><a class="dropdown-item" href="/issue/filter?projectId=<%=project._id%>&filter=malware">malware</a>
+                </li>
+            </ul>
+        </div>
+        <form action="/issue/search?projectId=<%= project._id%>" class="input" method="post">
+            <input placeholder="enter to search" type="text" name="searchValue">
+            <button type="submit" class="btn btn-primary">search</button>
+        </form>
+        <button type="button" style="border: 2px solid red;height: 2.5em;margin-top: .5em;" class="btn btn-primary"
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Create Issue
+        </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        <%=project.name%>
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <%-include('issueForm')%>
+            </div>
+        </div>
+    </div>
+    <ol id="issueList">
+        <%if(project.issues){%>
+            <%for(let issue of project.issues){%>
+                <%if(search==="" ){%>
+
+                    <%if(filter==='all'){%>
+                        <li>
+
+                            <h3>Title:-
+                                <%=issue.title%>
+                            </h3>
+                            <p>Description:
+                                <%=issue.description%>
+                            </p>
+                            <p>Fix:
+                                <%=issue.labels%>
+                            </p>
+                            <h6>->
+                                <%=issue.author%>
+                            </h6>
+
+
+                        </li>
+                        <%}else if(issue.labels===filter){%>
+                            <li>
+
+                                <h3>Title:-
+                                    <%=issue.title%>
+                                </h3>
+                                <p>Description:
+                                    <%=issue.description%>
+                                </p>
+                                <p>Fix:
+                                    <%=issue.labels%>
+                                </p>
+                                <h6>->
+                                    <%=issue.author%>
+                                </h6>
+
+
+                            </li>
+                            <%}%>
+                                <%}else if(issue.title.toLowerCase()==search.toLowerCase() ||
+                                    issue.description.toLowerCase()==search.toLowerCase() ||
+                                    issue.author.toLowerCase()==search.toLowerCase() ){%>
+                                    <li>
+
+                                        <h3>Title:-
+                                            <%=issue.title%>
+                                        </h3>
+                                        <p>Description:
+                                            <%=issue.description%>
+                                        </p>
+                                        <p>Fix:
+                                            <%=issue.labels%>
+                                        </p>
+                                        <h6>->
+                                            <%=issue.author%>
+                                        </h6>
+
+
+                                    </li>
+                                    <%}%>
+                                        <%}%>
+                                            <%}%>
+    </ol>
+</div>

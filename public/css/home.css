@@ -1,0 +1,37 @@
+#create {
+    text-decoration: none;
+    width: 10em;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: .4em;
+    background-color: rgb(237, 5, 52);
+    border: 2px solid black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+a>h3 {
+    text-transform: capitalize;
+    text-transform:uppercase;
+}
+
+li {
+    
+    /* border: 2px solid red; */
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 1em;
+    margin: 7px 10px;
+    width: 100%;
+}
+h3{
+
+}
+h6{
+    width: 5em;
+    text-transform: capitalize;
+    color: black;
+    border-bottom: 2px dotted darkgrey;
+}

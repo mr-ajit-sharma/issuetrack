@@ -1,0 +1,16 @@
+<form class="modal-body d-flex flex-column" method="post" action="/issue/createIssue/<%=project._id%>">
+    <input type="text " class="my-2" name="title" placeholder="Enter Issue" id="">
+    <textarea name="description" placeholder="enter the description" id="" cols="20"
+        rows="3"></textarea>
+    <select name="labels" id="">
+        <option value="">choose</option>
+        <option value="bugs">bugs</option>
+        <option value="malware">malware</option>
+        <option value="performance">performance</option>
+    </select>
+    <input type="text" name="author" placeholder="Enter your name">
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
