@@ -9,7 +9,7 @@
             <p>
                 <%=project.description%>
             </p>
-            <h6>
+            <h6>->
                 <%=project.author%>
             </h6>
         </div>
@@ -24,7 +24,7 @@
                 aria-expanded="false">
                 <span class="visually-hidden btn ">Toggle Dropdown</span>
             </button>
-            <ul class="dropdown-menu btn-primary filterbtn">
+            <ul class="dropdown-menu btn-primary ">
                 <li class=" text-danger"><a class="dropdown-item"
                         href="/issue/filter?projectId=<%=project._id%>&filter=all">All</a></li>
                 <li><a class="dropdown-item" href="/issue/filter?projectId=<%=project._id%>&filter=bugs">bugs</a>
@@ -37,7 +37,7 @@
             <input placeholder="enter to search" type="text" name="searchValue">
             <button type="submit" class="btn btn-primary">search</button>
         </form>
-        <button type="button" style="border: 2px solid red;height: 2.5em;margin-top: .5em;" class="btn btn-primary"
+        <button type="button"  class="btn btn-primary"
             data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Create Issue
         </button>
