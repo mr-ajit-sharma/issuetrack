@@ -31,6 +31,8 @@
                 </li>
                 <li><a class="dropdown-item" href="/issue/filter?projectId=<%=project._id%>&filter=malware">malware</a>
                 </li>
+                <li><a class="dropdown-item" href="/issue/filter?projectId=<%=project._id%>&filter=performance">performance</a>
+                </li>
             </ul>
         </div>
         <form action="/issue/search?projectId=<%= project._id%>" class="input" method="post">
